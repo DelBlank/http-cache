@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Http Cache</title>
+</head>
+<body>
+  <h2>Http Cache</h2>
+  <h3>Cache-Control</h3>
+
+  <button class="max-age-btn">max-age</button>
+  <ul class='max-age'></ul>
+
+  <button class='no-cache-etag-btn'>no-cache + etag</button>
+  <ul class='no-cache-etag'></ul>
+
+  <button class='no-cache-modified-btn'>no-cache + last-modified</button>
+  <ul class='no-cache-modified'></ul>
+
+  <script src='/public/jquery.js'></script>
+  <script src='/public/common.js'></script>
+
+  <script>  
+    $('.no-cache-etag-btn').click(
+      function() {
+        const seed = getSeed()
+        $.ajax({
+          url: '/api/no-cache-etag',
+          data: {seed},
+          cache: true,
+          success: function(result) {
+            $('.no-cache-etag').append(showTime(seed, result))
+          }
+        })
+      }
+    )
+
+    $('.no-cache-modified-btn').click(
+      function() {
+        const seed = getSeed()
+        $.ajax({
+          url: '/api/no-cache-modified',
+          data: {seed},
+          cache: true,
+          success: function(result) {
+            $('.no-cache-modified').append(showTime(seed, result))
+          }
+        })
+      }
+    )
+
+    $('.max-age-btn').click(
+      function(){
+        const seed = getSeed()
+        $.ajax({
+          url: '/api/max-age',
+          data: {seed},
+          cache: true,
+          success: function(result) {
+            $('.max-age').append(showTime(seed, result))
+          }
+        })
+      }
+    )
+  </script>
+</body>
+</html>

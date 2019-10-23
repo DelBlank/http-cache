@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Memory Cache</title>
+</head>
+<body>
+  <h2>Memory Cache</h2>
+  <button class='img-btn'>两个相同 src img</button>
+  <script src='/public/jquery.js'></script>
+  <script src='/public/common.js'></script>
+  <script src='/public/chunk.js'></script>
+  <script src='/public/chunk.js'></script>
+  <script src='/public/chunk.js'></script>
+
+  <script>  
+    $('.img-btn').click(
+      function(){
+        createScript('chunk.js');
+        createScript('chunk.js');
+      }
+    )
+  </script>
+</body>
+</html>
