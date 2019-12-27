@@ -6,8 +6,8 @@ http 缓存。
 
 ```bash
 $ npm i
-$ EGG_SERVER_ENV=prod npm start
-$ open http://localhost:7001/
+$ npm start
+$ 浏览器打开 http://localhost:7001/, 点击相应按钮观察‘服务器时间‘
 ```
 
 ## Cache
